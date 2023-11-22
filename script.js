@@ -1,37 +1,63 @@
+// Mendapatkan referensi ke elemen input dan daftar tugas
 const inputBox = document.getElementById("input-box");
-const listcontainer = document.getElementById("list-container");
+const listContainer = document.getElementById("list-container");
 
-function addTask(){
-    if(inputBox.value === ''){
+// Fungsi untuk menambahkan to-do list baru
+function addTask() {
+    // Memeriksa apakah input box kosong
+    if (inputBox.value === '') {
         alert("Kamu harus menulis sesuatu!");
-    }
-    else{
+    } else {
+        // Membuat elemen li baru untuk tugas
         let li = document.createElement("li");
+
+        // Menetapkan teks to-do list ke elemen li
         li.innerHTML = inputBox.value;
-        listcontainer.appendChild(li);
+
+        // Menambahkan elemen li ke dalam daftar tugas
+        listContainer.appendChild(li);
+
+        // Membuat elemen span (untuk tombol hapus)
         let span = document.createElement("span");
-        span.innerHTML = "\u00d7";
+        span.innerHTML = "\u00d7"; // Tambahkan simbol 'x'
+
+        // Menambahkan elemen span ke dalam elemen li
         li.appendChild(span);
     }
+
+    // Membersihkan nilai input box setelah menambahkan tugas
     inputBox.value = "";
+
+    // Menyimpan data ke local storage
     saveData();
 }
 
-listcontainer.addEventListener("click", function(e){
-    if(e.target.tagName === "LI"){
+// Menangani klik pada daftar tugas
+listContainer.addEventListener("click", function(e) {
+    if (e.target.tagName === "LI") {
+        // Toggle class 'checked' pada elemen li
         e.target.classList.toggle("checked");
+
+        // Menyimpan data ke local storage setelah perubahan
         saveData();
-    } 
-    else if(e.target.tagName == "SPAN"){
+    } else if (e.target.tagName == "SPAN") {
+        // Menghapus elemen li jika tombol hapus (span) diklik
         e.target.parentElement.remove();
+
+        // Menyimpan data ke local storage setelah perubahan
         saveData();
-    }   
+    }
 }, false);
 
-function saveData(){
-    localStorage.setItem("data", listcontainer.innerHTML);
+// Fungsi untuk menyimpan data ke local storage
+function saveData() {
+    localStorage.setItem("data", listContainer.innerHTML);
 }
-function showTask(){
-    listcontainer.innerHTML = localStorage.getItem("data");
+
+// Fungsi untuk menampilkan tugas dari local storage saat memuat halaman
+function showTask() {
+    listContainer.innerHTML = localStorage.getItem("data");
 }
+
+// Memanggil fungsi showTask untuk menampilkan tugas saat memuat halaman
 showTask();

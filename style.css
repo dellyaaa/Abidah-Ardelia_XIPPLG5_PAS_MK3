@@ -1,16 +1,21 @@
-*{
+/* Reset margin, padding, font family, dan box-sizing untuk semua elemen */
+* {
     margin: 0;
     padding: 0;
     font-family: 'poppins', sans-serif;
     box-sizing: border-box;
 }
-.container{
+
+/* Gaya untuk kontainer utama */
+.container {
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(135deg, #000000, #085f2c, rgb(58, 158, 100));
     padding: 10px;
 }
-.Todo-app{
+
+/* Gaya untuk bagian aplikasi Todo */
+.Todo-app {
     width: 100%;
     max-width: 540px;
     background: #fff;
@@ -19,19 +24,25 @@
     padding: 25px 30px 70px;
     border-radius: 10px;
 }
-.Todo-app h2{
+
+/* Gaya untuk judul aplikasi Todo */
+.Todo-app h2 {
     color: #002765;
     display: flex;
     align-items: center;
     margin-bottom: 50px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
-.Todo-app h2 img{
+
+/* Gaya untuk ikon aplikasi Todo */
+.Todo-app h2 img {
     width: 50px;
     height: 55px;
     margin-left: 10px;
 }
-.row{
+
+/* Gaya untuk baris input */
+.row {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,14 +52,18 @@
     margin-bottom: 25px;
     box-shadow: 0 5px 30px rgba(0.5, 0, 0, 0.5);
 }
-input{
+
+/* Gaya untuk elemen input */
+input {
     flex: 1;
     border: none;
     outline: none;
     background: transparent;
     padding: 10px;
 }
-button{
+
+/* Gaya untuk elemen tombol */
+button {
     border: none;
     outline: none;
     padding: 16px 50px;
@@ -60,7 +75,9 @@ button{
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
     box-shadow: 0 5px 30px rgba(0.5, 0, 0, 0.5);
 }
-ul li{
+
+/* Gaya untuk elemen daftar */
+ul li {
     list-style: none;
     font-size: 17px;
     padding: 12px 8px 12px 50px;
@@ -68,7 +85,9 @@ ul li{
     cursor: pointer;
     position: relative;
 }
-ul li::before{
+
+/* Gaya untuk ikon centang sebelum setiap elemen daftar */
+ul li::before {
     content: '';
     position: absolute;
     height: 20px;
@@ -80,14 +99,20 @@ ul li::before{
     top: 12px;
     left: 8px;
 }
-ul li.checked{
+
+/* Gaya untuk elemen daftar yang dicentang */
+ul li.checked {
     color: #555;
     text-decoration: line-through;
 }
-ul li.checked::before{
+
+/* Mengubah ikon centang untuk elemen yang dicentang */
+ul li.checked::before {
     background-image: url(checklist.png);
 }
-ul li span{
+
+/* Gaya untuk elemen span (tombol hapus) pada setiap elemen daftar */
+ul li span {
     position: absolute;
     right: 0;
     top: 5px;
@@ -99,10 +124,14 @@ ul li span{
     text-align: center;
     border-radius: 50%;
 }
-ul li span:hover{
+
+/* Efek hover untuk tombol hapus */
+ul li span:hover {
     background: #edeef0;
 }
-p{
+
+/* Gaya untuk informasi tambahan di bagian bawah */
+p {
     font-size: 12px;
     color: #ffffff;
     margin-top: 20px;
